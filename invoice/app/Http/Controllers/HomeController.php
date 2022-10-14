@@ -26,9 +26,9 @@ class HomeController extends Controller
     public function index()
     {
         $company = Company::where('status',1)->get();
-        $services = CartService::where('status',0)->where('cartId',$invoiceid)->get();
-        $products = CartParts::where('status',0)->where('cartId',$invoiceid)->get();
-        return view('pages/home');
+        $services = Service::where('status',1)->get();
+        $products = Products::where('status',1)->get();
+        return view('pages/home',['company'=>$company,'services'=>$services,'products'=>$products]);
     }
 
     

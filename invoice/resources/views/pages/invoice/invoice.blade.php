@@ -293,9 +293,9 @@
 
     <div class="footer">
       <div class="footer-info">
-        <span>hello@useanvil.com</span> |
+        <span>xxxx@xxxx.com</span> |
         <span>555 444 6666</span> |
-        <span>useanvil.com</span>
+        <span>xxxxx.com</span>
       </div>
       <div class="footer-thanks" style="display: inline-block;">
         <span>Signature</span>

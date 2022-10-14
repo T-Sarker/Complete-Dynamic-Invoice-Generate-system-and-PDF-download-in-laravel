@@ -119,6 +119,18 @@ class CompanyController extends Controller
         
     }
 
+
+    public function profile($id)
+    {
+        $result = Company::where('id',$id)->with('getCarts')->first();
+        if (!empty($result)) {
+            // if hs value then return
+            return view('pages/company/profile')->with('company', $result);
+        } else {
+            return redirect('pages/404')->with('error',"Data Update failed");
+        }
+    }
+
     /**
      * Remove the specified resource from storage.
      *

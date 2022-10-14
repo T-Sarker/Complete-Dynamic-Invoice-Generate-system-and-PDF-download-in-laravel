@@ -61,6 +61,7 @@ Route::prefix('admin/company')->controller(CompanyController::class)->group(func
     Route::get('/', 'index')->name('company');
     Route::post('/add', 'store')->name('company.add');
     Route::get('/show', 'show')->name('company.show');
+    Route::get('/profile/{id}', 'profile')->name('company.profile');
     Route::get('/edit/{id}', 'edit')->name('company.edit');
     Route::post('/update', 'update')->name('company.update');
     Route::get('/delete/{id}', 'destroy')->name('company.destroy');

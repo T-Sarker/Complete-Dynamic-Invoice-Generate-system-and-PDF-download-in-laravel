@@ -145,12 +145,20 @@ class CartController extends Controller
      * @param  \App\Models\Cart  $cart
      * @return \Illuminate\Http\Response
      */
+
+
+        /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Cart  $cart
+     * @return \Illuminate\Http\Response
+     */
     public function generateInvoice($companyId,$invoiceid)
     {
         //getting the data from the cart service and cart prats table filtered by invoice id
         $company = Company::where('id',$companyId)->first();
-        $services = CartService::where('status',0)->where('cartId',$invoiceid)->get();
-        $products = CartParts::where('status',0)->where('cartId',$invoiceid)->get();
+        $services = CartService::where('cartId',$invoiceid)->get();
+        $products = CartParts::where('cartId',$invoiceid)->get();
 
         
 
@@ -159,7 +167,7 @@ class CartController extends Controller
         $Uservices = CartService::where('status',0)->where('cartId',$invoiceid)->update(['status'=>1]);
         $Uproducts = CartParts::where('status',0)->where('cartId',$invoiceid)->update(['status'=>1]);
 
-        $InsertCompanyData = Cart::create([
+        $InsertCompanyData = Cart::firstOrNew([
                 'cartId'=>$invoiceid,
                 'companyId'=> $companyId,
                 'status'=> 0

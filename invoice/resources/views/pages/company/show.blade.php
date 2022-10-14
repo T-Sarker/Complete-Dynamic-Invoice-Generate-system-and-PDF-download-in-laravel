@@ -26,7 +26,8 @@
               <td >{{$company->phone}}</td>
               <td >{{$company->status}}</td>
               <td >
-                <a href="{{route('company.edit',$company->id)}}" class="badge text-dark bg-warning py-2"><i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"></i></a>
+                <a href="{{route('company.profile',$company->id)}}" class="badge text-dark bg-warning py-2"><i class="fa fa-2x fa-eye" aria-hidden="true"></i></a>
+                <a href="{{route('company.profile',$company->id)}}" class="badge text-dark bg-warning py-2"><i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"></i></a>
                 <a href="{{route('company.destroy',$company->id)}}"  onclick="return confirm('Are you sure you want to delete this item?');" class="badge text-dark bg-danger py-2"><i  class="fa fa-2x fa-trash-o" aria-hidden="true"></i>
 </a>
               </td>
